@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import useProjectsService from '../services/useProjectsService';
-import { ProjectCard } from './ProjectCard';
+import ProjectsGrid from './ProjectsGrid';
 
 const ProjectsView: FunctionComponent<{}> = () => {
     const service = useProjectsService();
@@ -10,10 +10,8 @@ const ProjectsView: FunctionComponent<{}> = () => {
                 service.status === 'loading' && <div>Loading...</div>
             }
             {
-            service.status === 'loaded' && service.payload &&
-            service.payload.data.map((project: any) => (
-                <ProjectCard key={project.id} data={project} />
-            ))
+                service.status === 'loaded' && service.payload &&
+                <ProjectsGrid results={service.payload.data} />
             }
             {
                 service.status === 'error' && <div>Error!!</div>
