@@ -15,7 +15,7 @@ type CardProps = {
 
 const useStyles = makeStyles({
     root: {
-        maxWidth: 275,
+        maxWidth: 375,
     }
 });
 
