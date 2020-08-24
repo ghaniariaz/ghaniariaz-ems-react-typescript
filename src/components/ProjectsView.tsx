@@ -4,7 +4,6 @@ import { ProjectCard } from './ProjectCard';
 
 const ProjectsView: FunctionComponent<{}> = () => {
     const service = useProjectsService();
-    console.log(service)
     return (
         <div>
             {
@@ -12,9 +11,12 @@ const ProjectsView: FunctionComponent<{}> = () => {
             }
             {
             service.status === 'loaded' && service.payload &&
-            service.payload.data.map((project,i) => (
-                <ProjectCard key={i} data={project} />
+            service.payload.data.map((project: any) => (
+                <ProjectCard key={project.id} data={project} />
             ))
+            }
+            {
+                service.status === 'error' && <div>Error!!</div>
             }
         </div>
     )
