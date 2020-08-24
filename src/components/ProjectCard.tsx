@@ -5,9 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
 
 type CardProps = {
-    name: string,
-    creationDate: Date,
-    status: string
+    data: {
+        name: string;
+        creationDate: Date;
+        state: string;
+    };
 }
 
 const useStyles = makeStyles({
@@ -16,20 +18,20 @@ const useStyles = makeStyles({
     }
 });
 
-export const ProjectCard: FunctionComponent<CardProps> = ({ name, creationDate, status }) => {
+export const ProjectCard: FunctionComponent<CardProps> = ({ data }) => {
     const classes = useStyles();
 
     return (
         <Card className={classes.root}>
             <CardContent>
                 <Typography variant="h5" component="h2">
-                    {name}
+                    {data.name}
                 </Typography>
                 <Typography color="textSecondary" component="p">
-                    {creationDate}
+                    {data.creationDate}
                 </Typography>
                 <Typography color="textSecondary" component="p">
-                    {status}
+                    {data.state}
                 </Typography>
             </CardContent>
         </Card>
