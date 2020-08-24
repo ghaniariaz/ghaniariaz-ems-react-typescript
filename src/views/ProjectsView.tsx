@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import useProjectsService from '../services/useProjectsService';
-import ProjectsGrid from './ProjectsGrid';
+import ProjectsGrid from '../components/ProjectsGrid';
 
 const ProjectsView: FunctionComponent<{}> = () => {
     const service = useProjectsService();
