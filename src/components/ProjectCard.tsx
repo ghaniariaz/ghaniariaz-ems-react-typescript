@@ -12,6 +12,15 @@ type CardProps = {
     status: string
 }
 
+const useStyles = makeStyles({
+    root: {
+      maxWidth: 345,
+    },
+    media: {
+      height: 140,
+    },
+  });
+
 export const ProjectCard = ({name, creationDate, status}: CardProps) => <aside>
     <h3>{name}</h3>
     <h4>{creationDate}</h4>
