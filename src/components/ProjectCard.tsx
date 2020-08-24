@@ -1,10 +1,8 @@
-import React from 'react';
+import React, { FunctionComponent } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
-import CardActions from '@material-ui/core/CardActions';
+import Typography from '@material-ui/core/Typography';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 
 type CardProps = {
     name: string,
@@ -14,15 +12,27 @@ type CardProps = {
 
 const useStyles = makeStyles({
     root: {
-      maxWidth: 345,
-    },
-    media: {
-      height: 140,
-    },
-  });
+        maxWidth: 275,
+    }
+});
 
-export const ProjectCard = ({name, creationDate, status}: CardProps) => <aside>
-    <h3>{name}</h3>
-    <h4>{creationDate}</h4>
-    <h4>{status}</h4>
-</aside>
+export const ProjectCard: FunctionComponent<CardProps> = ({ name, creationDate, status }) => {
+    const classes = useStyles();
+
+    return (
+        <Card className={classes.root}>
+            <CardContent>
+                <Typography variant="h5" component="h2">
+                    {name}
+                </Typography>
+                <Typography color="textSecondary" component="p">
+                    {creationDate}
+                </Typography>
+                <Typography color="textSecondary" component="p">
+                    {status}
+                </Typography>
+            </CardContent>
+        </Card>
+    );
+
+}
