@@ -15,20 +15,20 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const ProjectsGrid: FunctionComponent<Projects> = ({results}) => {
     const classes = useStyles();
-    debugger;
-  return (
-    <div className={classes.root}>
-      <Grid container spacing={2} direction="row">
-            {
-                results && results.map((project: any) => (
-                    <Grid item xs={6} sm={3}>
-                    <ProjectCard key={project.id} data={project} />
-                    </Grid>
-                ))
-            }
-      </Grid>
-    </div>
-  );
+
+    return (
+        <div className={classes.root}>
+        <Grid container spacing={2}>
+                {
+                    results && results.map((project: any) => (
+                        <Grid item xs={6} sm={3}>
+                        <ProjectCard key={project.id} data={project} />
+                        </Grid>
+                    ))
+                }
+        </Grid>
+        </div>
+    );
 }
 
 export default ProjectsGrid;
