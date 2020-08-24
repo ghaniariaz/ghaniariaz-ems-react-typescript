@@ -21,8 +21,6 @@ const useStyles = makeStyles({
 
 export const ProjectCard: FunctionComponent<CardProps> = ({ data }) => {
     const classes = useStyles();
-    debugger
-    
     return (
         <Card id={data.id} className={classes.root}>
             <CardContent>
