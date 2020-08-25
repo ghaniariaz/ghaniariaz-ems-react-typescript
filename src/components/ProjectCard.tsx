@@ -31,7 +31,7 @@ export const ProjectCard: FunctionComponent<CardProps> = ({ data }) => {
                     {new Date(data.creationDate).toString()}
                 </Typography>
                 <Typography color="textSecondary" component="p">
-                    {data.status}
+                    <b>{data.status}</b>
                 </Typography>
             </CardContent>
         </Card>
