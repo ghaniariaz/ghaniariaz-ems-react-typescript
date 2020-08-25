@@ -11,7 +11,7 @@ const ProjectsView: FunctionComponent<{}> = () => {
             }
             {
                 service.status === 'loaded' && service.payload &&
-                <ProjectsGrid results={service.payload.data} />
+                <ProjectsGrid results={service.payload} />
             }
             {
                 service.status === 'error' && <div>Error!!</div>

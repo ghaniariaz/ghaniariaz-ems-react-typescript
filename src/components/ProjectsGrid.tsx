@@ -2,6 +2,7 @@ import React, { FunctionComponent, useState } from 'react';
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import { ProjectCard } from './ProjectCard';
+import {Project} from '../types/Project';
 import {Projects} from '../services/useProjectsService';
 import Button from '@material-ui/core/Button';
 
@@ -15,15 +16,15 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const moment = require('moment');
 var _ = require('lodash');
-const sortArray = (projects: Projects, sortProperty: string) => {
+export const sortArray = (projects: Project[], sortProperty: string) => {
   return _.orderBy(projects, function(project: any) {
     return new moment(project.creationDate)
   }, [sortProperty]);
-}
+};
 
 const ProjectsGrid: FunctionComponent<Projects> = ({results}) => {
     const classes = useStyles();  
-    const [data, setData] = useState(results); 
+    const [data, setData] = useState(results.data); 
     return (
         <div className={classes.root}>
           <Grid container spacing={2}>
