@@ -24,7 +24,7 @@ export const sortArray = (projects: Project[], sortProperty: string) => {
 
 const ProjectsGrid: FunctionComponent<Projects> = ({results}) => {
     const classes = useStyles();  
-    const [data, setData] = useState(results.data); 
+    const [data, setData] = useState(results); 
     return (
         <div className={classes.root}>
           <Grid container spacing={2}>

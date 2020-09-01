@@ -7,14 +7,14 @@ export interface Projects {
 }
 
 const useProjectsService = () => {
-    const [result, setResult] = useState<Service<Projects>>({
+    const [result, setResult] = useState<Service<Project[]>>({
         status: 'loading'
     });
 
     useEffect(() => {
         fetch('http://localhost:3004/projects')
         .then(response => response.json())
-        .then(response => setResult({ status: 'loaded', payload: response }))
+        .then(response => setResult({ status: 'loaded', payload: response.data }))
         .catch(error => setResult({ status: 'error', error }));
     }, [])
 
